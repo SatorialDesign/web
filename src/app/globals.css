@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #ede8e0;       /* warm plaster wall */
+  --color-warm-white: #f5f0e8;  /* sunlit linen */
+  --color-charcoal: #241f1b;    /* espresso brown-black */
+  --color-dark: #161210;        /* rich near-black walnut */
+  --color-gold: #b5966a;        /* brushed brass */
+  --color-gold-light: #d5b88a;  /* lighter brass highlight */
+  --color-gold-dark: #8c6e48;   /* aged brass / patina */
+  --color-taupe: #96897a;       /* warm taupe */
+  --color-sage: #6e7d66;        /* deep olive velvet */
+  --color-terracotta: #a8503a;  /* burnt sienna */
+  --color-stone: #cdc3b5;       /* travertine / honed stone */
+  --color-muted: #6b6259;       /* warm umber text */
+  --color-oxblood: #6d2c2c;     /* deep burgundy velvet */
+  --color-walnut: #4a3525;      /* dark walnut wood */
+  --color-parchment: #ddd5c8;   /* aged paper / linen */
+
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-accent: "Cormorant Garamond", Georgia, serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-taupe);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--color-gold);
+  color: white;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes drawLine {
+  from { width: 0; }
+  to { width: 60px; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+/* Stagger delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+
+/* Initially hidden for animation */
+.animate-on-scroll {
+  opacity: 0;
+}
+.animate-on-scroll.animated {
+  opacity: 1;
+}
+
+/* Gold accent line */
+.gold-line {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: var(--color-gold);
+}
+
+/* Hover image zoom */
+.img-zoom {
+  overflow: hidden;
+}
+.img-zoom img {
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.img-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* Custom gradient overlay for hero */
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(22, 18, 16, 0.88) 0%,
+    rgba(36, 31, 27, 0.55) 50%,
+    rgba(22, 18, 16, 0.3) 100%
+  );
+}
+
+/* Text gradient */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Decorative border */
+.border-ornament {
+  border: 1px solid var(--color-gold);
+  position: relative;
+}
+.border-ornament::before,
+.border-ornament::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--color-gold);
+  background: var(--color-cream);
+}
+.border-ornament::before {
+  top: -4px;
+  left: -4px;
+}
+.border-ornament::after {
+  bottom: -4px;
+  right: -4px;
+}
